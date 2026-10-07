@@ -1,0 +1,271 @@
+/* Le Chat Noir — Sisteron
+   Couleurs reprises de l'enseigne : le chat noir sur fond brique.
+   La page va du crépuscule (brique) à la nuit (noir) : le restaurant n'ouvre que le soir. */
+
+@font-face { font-family: "Amatic SC"; font-weight: 700; font-display: swap; src: url("fonts/amatic-700.woff2") format("woff2"); }
+@font-face { font-family: "Karla"; font-weight: 200 800; font-style: normal; font-display: swap; src: url("fonts/karla.woff2") format("woff2"); }
+@font-face { font-family: "Karla"; font-weight: 400; font-style: italic; font-display: swap; src: url("fonts/karla-italic.woff2") format("woff2"); }
+
+:root {
+  --brique: #c45a33;       /* fond de l'enseigne */
+  --brique-sombre: #8f3b1d;
+  --noir: #000;            /* le chat */
+  --nuit: #17110e;         /* fond de la salle le soir */
+  --pierre: #f1dfc6;       /* calcaire du rocher de la Baume */
+  --pierre-sombre: #d9c1a1;
+  --lampe: #e8a63e;        /* lumière des guirlandes de la terrasse */
+  --texte-nuit: #efe3d3;
+  --gris-nuit: #b7a593;
+
+  --f-titre: "Amatic SC", "Comic Sans MS", cursive;
+  --f-texte: "Karla", system-ui, sans-serif;
+
+  --mesure: 34rem;
+  --gouttiere: clamp(1rem, 4vw, 3rem);
+  --rayon: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+body {
+  margin: 0;
+  background: var(--brique);
+  color: var(--noir);
+  font-family: var(--f-texte);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--lampe); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 { font-family: var(--f-titre); font-weight: 700; line-height: .95; margin: 0; letter-spacing: .01em; }
+h2 { font-size: clamp(3rem, 7vw, 4.75rem); }
+h3 { font-size: 2.1rem; }
+p { margin: 0 0 1em; }
+
+.passer { position: absolute; left: -999px; top: 0; background: var(--noir); color: var(--pierre); padding: .75rem 1rem; z-index: 10; }
+.passer:focus { left: 1rem; }
+
+.cadre { max-width: 72rem; margin: 0 auto; padding-inline: var(--gouttiere); }
+
+/* ---------- En-tête ---------- */
+.entete { padding-block: 1.1rem; }
+.entete .cadre { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.marque { display: flex; align-items: center; gap: .55rem; text-decoration: none; font-family: var(--f-titre); font-size: 2rem; line-height: 1; }
+.marque img { width: 1.6rem; height: auto; }
+.nav { display: flex; gap: clamp(.9rem, 3vw, 2rem); font-weight: 600; }
+.nav a { text-decoration: none; padding-block: .3rem; border-bottom: 2px solid transparent; }
+.nav a:hover { border-color: currentColor; }
+
+/* ---------- Accueil : le chat assis sur le rebord ---------- */
+.accueil { position: relative; padding-top: clamp(1.5rem, 5vw, 4rem); overflow: hidden; }
+.accueil .cadre { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: end; gap: 1rem; }
+.accueil h1 { font-size: clamp(5.5rem, 17vw, 14rem); line-height: .8; margin-bottom: .25em; }
+.accueil h1 span { display: block; }
+.accroche { font-size: clamp(1.15rem, 2vw, 1.35rem); max-width: 28rem; margin-bottom: .6rem; }
+.horaires-courts { font-weight: 600; margin-bottom: 1.6rem; }
+.accueil .actions { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; padding-bottom: clamp(2.5rem, 6vw, 5rem); }
+
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  font: 600 1.05rem/1 var(--f-texte);
+  padding: 1rem 1.5rem; border-radius: var(--rayon); border: 2px solid var(--noir);
+  background: var(--noir); color: var(--pierre); text-decoration: none; cursor: pointer;
+}
+.bouton:hover { background: var(--nuit); text-decoration: none; }
+.bouton[disabled] { opacity: .45; cursor: not-allowed; }
+.bouton-clair { background: var(--lampe); border-color: var(--lampe); color: var(--noir); }
+.bouton-clair:hover { background: #f0b65a; }
+.lien-tel { font-weight: 600; }
+
+.chat { justify-self: end; width: min(100%, 22rem); margin-bottom: -2px; }
+.chat .queue { transform-origin: 140px 236px; animation: queue 2.6s ease-in-out .6s 2 both; }
+@keyframes queue {
+  0%, 100% { transform: rotate(0); }
+  35% { transform: rotate(-9deg); }
+  70% { transform: rotate(4deg); }
+}
+
+/* ---------- Sections claires ---------- */
+.pierre { background: var(--pierre); padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.maison .cadre { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); }
+.maison h2 { margin-bottom: .4em; }
+.maison .texte p { max-width: var(--mesure); font-size: 1.15rem; }
+.bon-a-savoir { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--noir); }
+.bon-a-savoir li { padding: .85rem 0; border-bottom: 1px solid var(--pierre-sombre); display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; }
+.bon-a-savoir strong { font-weight: 600; }
+
+/* La carte */
+.carte { border-top: 1px solid var(--pierre-sombre); }
+.carte .intro { display: flex; justify-content: space-between; align-items: end; gap: 1rem 3rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.carte .intro p { max-width: 26rem; margin: 0; }
+.colonnes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem clamp(2rem, 6vw, 5rem); }
+.rubrique h3 { margin-bottom: .6rem; color: var(--brique-sombre); }
+.plats { list-style: none; margin: 0 0 1rem; padding: 0; }
+.plats li { padding: .55rem 0; }
+.plat { display: flex; align-items: baseline; gap: .5rem; font-weight: 600; }
+.plat::after { content: ""; order: 2; flex: 1; border-bottom: 2px dotted var(--pierre-sombre); transform: translateY(-.25em); }
+.plat .prix { order: 3; font-variant-numeric: tabular-nums; }
+.plats .desc { display: block; color: #4a3a2f; font-size: .97rem; max-width: 30rem; }
+.mentions-carte { margin-top: 2.5rem; font-size: .92rem; color: #4a3a2f; max-width: 44rem; }
+
+/* ---------- La nuit : réservation ---------- */
+.nuit { background: var(--nuit); color: var(--texte-nuit); padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.nuit a { color: var(--texte-nuit); }
+.nuit h2 { color: var(--lampe); }
+.reserver .tete { display: flex; justify-content: space-between; align-items: end; gap: 1rem 3rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.reserver .tete p { max-width: 28rem; margin: 0; color: var(--gris-nuit); }
+
+.formulaire { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(16rem, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.etape { border: 0; padding: 0; margin: 0 0 2.25rem; min-width: 0; }
+.etape legend { font-family: var(--f-titre); font-size: 2.2rem; line-height: 1; margin-bottom: .9rem; padding: 0; display: flex; gap: .6rem; align-items: baseline; }
+.etape legend .n { color: var(--brique); }
+
+/* Bande de dates */
+.jours { display: flex; gap: .5rem; overflow-x: auto; padding: .2rem .2rem .8rem; margin: 0 -.2rem; scroll-snap-type: x proximity; scrollbar-color: #4a3a30 transparent; }
+.jour {
+  flex: 0 0 4.6rem; scroll-snap-align: start;
+  display: grid; justify-items: center; gap: .05rem; padding: .6rem .3rem;
+  background: transparent; color: var(--texte-nuit); border: 1px solid #4a3a30; border-radius: var(--rayon);
+  font: 400 .85rem/1.2 var(--f-texte); cursor: pointer;
+}
+.jour b { font: 700 1.9rem/1 var(--f-titre); }
+.jour:hover:not([disabled]) { border-color: var(--gris-nuit); }
+.jour[aria-pressed="true"] { background: var(--lampe); border-color: var(--lampe); color: var(--noir); }
+.jour[disabled] { color: #6d5d51; border-style: dashed; cursor: not-allowed; }
+.autre-date { display: flex; gap: .75rem; align-items: center; margin-top: .6rem; flex-wrap: wrap; color: var(--gris-nuit); font-size: .95rem; }
+
+/* Nombre de personnes */
+.compteur { display: inline-flex; align-items: center; border: 1px solid #4a3a30; border-radius: var(--rayon); }
+.compteur button { width: 3rem; height: 3rem; background: none; border: 0; color: var(--texte-nuit); font-size: 1.5rem; cursor: pointer; border-radius: var(--rayon); }
+.compteur button:hover:not([disabled]) { background: #2a201b; }
+.compteur button[disabled] { color: #5a4a3f; cursor: not-allowed; }
+.compteur output { min-width: 6.5rem; text-align: center; font-weight: 600; }
+.aide { color: var(--gris-nuit); font-size: .93rem; margin-top: .6rem; }
+
+/* Créneaux */
+.creneaux { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.2rem, 1fr)); gap: .5rem; }
+.creneau {
+  padding: .75rem .25rem; border-radius: var(--rayon); border: 1px solid #4a3a30;
+  background: transparent; color: var(--texte-nuit); font: 600 1rem/1 var(--f-texte); cursor: pointer; font-variant-numeric: tabular-nums;
+}
+.creneau:hover:not([disabled]) { border-color: var(--gris-nuit); }
+.creneau[aria-pressed="true"] { background: var(--lampe); border-color: var(--lampe); color: var(--noir); }
+.creneau[disabled] { color: #6d5d51; text-decoration: line-through; cursor: not-allowed; }
+.message-creneaux { color: var(--gris-nuit); margin: 0; }
+
+/* Champs */
+.champs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 1.25rem; }
+.champ { display: grid; gap: .35rem; }
+.champ.large { grid-column: 1 / -1; }
+.champ label { font-weight: 600; font-size: .97rem; }
+.champ .facultatif { font-weight: 400; color: var(--gris-nuit); }
+input, textarea {
+  font: inherit; color: var(--texte-nuit); background: #221915; border: 1px solid #5a4a3f; border-radius: var(--rayon);
+  padding: .8rem .9rem; width: 100%;
+}
+input:focus-visible, textarea:focus-visible { outline: 3px solid var(--lampe); outline-offset: 1px; }
+textarea { min-height: 5.5rem; resize: vertical; }
+input[type="date"] { width: auto; color-scheme: dark; padding: .55rem .7rem; }
+.erreur-champ { color: #ff9f7f; font-size: .9rem; min-height: 0; }
+.erreur-champ:empty { display: none; }
+[aria-invalid="true"] { border-color: #ff9f7f; }
+.case { display: flex; gap: .7rem; align-items: flex-start; font-size: .97rem; }
+.case input { width: 1.2rem; height: 1.2rem; margin: .2rem 0 0; accent-color: var(--lampe); flex: none; }
+.piege { position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Récapitulatif */
+.recap { position: sticky; top: 1.5rem; border: 1px solid #4a3a30; border-radius: var(--rayon); padding: 1.5rem; }
+.recap h3 { color: var(--lampe); margin-bottom: 1rem; }
+.recap dl { margin: 0 0 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: .55rem 1rem; }
+.recap dt { color: var(--gris-nuit); }
+.recap dd { margin: 0; font-weight: 600; }
+.recap .bouton { width: 100%; }
+.recap .petit { color: var(--gris-nuit); font-size: .9rem; margin: 1rem 0 0; }
+.alerte { border-left: 3px solid #ff9f7f; padding: .5rem 0 .5rem .9rem; margin: 0 0 1rem; color: #ffd4c4; }
+.alerte:empty { display: none; }
+
+/* Confirmation */
+.confirmation { border: 1px solid var(--lampe); border-radius: var(--rayon); padding: clamp(1.5rem, 4vw, 2.5rem); max-width: 40rem; }
+.confirmation h3 { font-size: 3rem; color: var(--lampe); margin-bottom: .75rem; }
+.reference { font: 700 2.4rem/1 var(--f-titre); letter-spacing: .06em; color: var(--texte-nuit); display: inline-block; border: 1px dashed var(--gris-nuit); padding: .4rem .9rem; margin: .25rem 0 1rem; border-radius: var(--rayon); }
+
+/* Gérer sa réservation */
+.gerer { margin-top: 3.5rem; border-top: 1px solid #3a2d26; padding-top: 1.75rem; }
+.gerer summary { cursor: pointer; font-weight: 600; font-size: 1.1rem; }
+.gerer form { display: flex; gap: 1rem; flex-wrap: wrap; align-items: end; margin-top: 1.25rem; }
+.gerer .champ { flex: 1 1 13rem; }
+.resultat-gerer { margin-top: 1.25rem; }
+
+/* ---------- Infos pratiques ---------- */
+.infos { background: var(--brique); padding-block: clamp(3.5rem, 8vw, 6rem); }
+.infos .cadre { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem clamp(2rem, 5vw, 4rem); }
+.infos h2 { grid-column: 1 / -1; }
+.infos h3 { margin-bottom: .5rem; }
+.infos table { border-collapse: collapse; width: 100%; max-width: 20rem; }
+.infos td { padding: .3rem 0; border-bottom: 1px solid rgba(0,0,0,.25); }
+.infos td + td { text-align: right; font-variant-numeric: tabular-nums; }
+.infos .ferme { font-style: italic; }
+.infos address { font-style: normal; }
+
+/* ---------- Pied de page ---------- */
+.pied { background: var(--noir); color: var(--gris-nuit); padding-block: 2.5rem; font-size: .95rem; }
+.pied .cadre { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+.pied nav { display: flex; gap: .5rem 1.5rem; flex-wrap: wrap; }
+.pied a { color: var(--texte-nuit); }
+
+/* ---------- Pages légales ---------- */
+.legal { background: var(--pierre); padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.legal .cadre { max-width: 48rem; }
+.legal h1 { font-size: clamp(3.5rem, 9vw, 5.5rem); margin-bottom: .3em; }
+.legal h2 { font-size: 2.4rem; margin: 2.2rem 0 .6rem; color: var(--brique-sombre); }
+.legal p, .legal li { max-width: 42rem; }
+.legal .maj { color: #4a3a2f; }
+.legal .a-completer { background: #f7cf8f; padding: 0 .25em; border-radius: 2px; }
+.legal table { border-collapse: collapse; width: 100%; margin: .5rem 0 1rem; font-size: .97rem; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: .55rem .6rem .55rem 0; border-bottom: 1px solid var(--pierre-sombre); }
+
+/* ---------- Espace restaurant ---------- */
+.admin { background: var(--nuit); color: var(--texte-nuit); min-height: 100vh; padding-block: 2rem 4rem; }
+.admin h1 { font-size: 3.5rem; color: var(--lampe); margin-bottom: 1rem; }
+.admin .barre { display: flex; gap: 1rem; flex-wrap: wrap; align-items: end; margin-bottom: 1.5rem; }
+.admin .totaux { color: var(--gris-nuit); margin-bottom: 1rem; }
+.prochains { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.prochains button { background: none; border: 1px solid #4a3a30; color: var(--texte-nuit); padding: .45rem .7rem; border-radius: var(--rayon); cursor: pointer; font: inherit; font-size: .9rem; }
+.prochains button:hover { border-color: var(--gris-nuit); }
+.table-resa { width: 100%; border-collapse: collapse; font-size: .97rem; }
+.table-resa th, .table-resa td { text-align: left; padding: .7rem .6rem; border-bottom: 1px solid #3a2d26; vertical-align: top; }
+.table-resa th { color: var(--gris-nuit); font-weight: 600; }
+.table-resa .annulee td { color: #7a685b; text-decoration: line-through; }
+.table-resa select { font: inherit; background: #221915; color: var(--texte-nuit); border: 1px solid #5a4a3f; border-radius: var(--rayon); padding: .35rem; }
+.defile { overflow-x: auto; }
+.bouton-texte { background: none; border: 0; color: #ff9f7f; cursor: pointer; font: inherit; text-decoration: underline; padding: 0; }
+
+/* ---------- Petits écrans ---------- */
+@media (max-width: 860px) {
+  .accueil .cadre, .maison .cadre, .formulaire, .colonnes { grid-template-columns: 1fr; }
+  .infos .cadre { grid-template-columns: 1fr 1fr; }
+  .chat { width: 13rem; justify-self: end; margin-top: -1rem; }
+  .accueil .actions { padding-bottom: 0; }
+  .recap { position: static; }
+}
+@media (max-width: 560px) {
+  .champs, .infos .cadre { grid-template-columns: 1fr; }
+  .bon-a-savoir li { grid-template-columns: 1fr; gap: .1rem; }
+  .nav { width: 100%; justify-content: space-between; }
+  .chat { width: 10.5rem; }
+}
+
+@media print {
+  .entete, .pied, .accueil, .barre, .prochains { display: none; }
+  .admin { background: #fff; color: #000; }
+  .table-resa th, .table-resa td { border-color: #999; color: #000; }
+}
+
+.admin .titre-jour { font-size: 2.6rem; margin-bottom: .4rem; }
+.bouton-contour { border-color: #4a3a30; }

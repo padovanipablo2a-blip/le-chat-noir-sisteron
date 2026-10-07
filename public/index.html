@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Chat Noir · Restaurant à Sisteron · Réservation en ligne</title>
+  <meta name="description" content="Le Chat Noir, restaurant de burgers au 217 rue Droite, dans la vieille ville de Sisteron. Ouvert le soir, terrasse ombragée. Réservez votre table en ligne.">
+  <meta name="theme-color" content="#c45a33">
+  <link rel="icon" href="chat.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/amatic-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="Le Chat Noir · Sisteron">
+  <meta property="og:description" content="Burgers et soirées sous la terrasse, rue Droite. Réservez en ligne.">
+  <meta property="og:type" content="restaurant">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Le Chat Noir",
+    "servesCuisine": "Burgers",
+    "telephone": "+33492622128",
+    "acceptsReservations": true,
+    "address": { "@type": "PostalAddress", "streetAddress": "217 rue Droite", "postalCode": "04200", "addressLocality": "Sisteron", "addressCountry": "FR" },
+    "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Friday","Saturday","Sunday"], "opens": "18:30", "closes": "21:30" }],
+    "paymentAccepted": "Carte bancaire, chèque, espèces"
+  }
+  </script>
+</head>
+<body>
+  <a class="passer" href="#reserver">Aller à la réservation</a>
+
+  <header class="entete">
+    <div class="cadre">
+      <a class="marque" href="/" aria-label="Le Chat Noir, accueil">
+        <img src="chat.svg" alt="" width="26" height="32">
+        Le Chat Noir
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#carte">La carte</a>
+        <a href="#reserver">Réserver</a>
+        <a href="#infos">Infos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="accueil" aria-labelledby="titre">
+      <div class="cadre">
+        <div>
+          <h1 id="titre"><span>Le Chat</span><span>Noir</span></h1>
+          <p class="accroche">Burgers, frites maison et mousse au chocolat, dans la vieille ville de Sisteron, rue Droite.</p>
+          <p class="horaires-courts">Le soir de 18 h 30 à 21 h 30. Fermé le mercredi et le jeudi.</p>
+          <div class="actions">
+            <a class="bouton" href="#reserver">Réserver une table</a>
+            <a class="lien-tel" href="tel:+33492622128">ou appeler le 04 92 62 21 28</a>
+          </div>
+        </div>
+        <svg class="chat" viewBox="0 0 200 250" role="img" aria-label="Un chat noir assis, l'emblème du restaurant">
+          <g fill="#000">
+              <path d="M44 246 C40 205 38 160 50 120 C43 110 38 98 37 86 L27 80 C31 72 37 64 44 58 L44 22 L63 42 C68 41 74 41 79 42 L96 22 L96 60 C101 72 100 86 94 98 C120 116 152 150 158 196 C161 220 156 238 144 246 Z"/>
+              <path class="queue" d="M140 238 C176 242 196 218 190 186 C186 166 170 162 166 146" fill="none" stroke="#000" stroke-width="11" stroke-linecap="round"/>
+            </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="pierre maison" aria-labelledby="titre-maison">
+      <div class="cadre">
+        <div class="texte">
+          <h2 id="titre-maison">Une table sous la treille</h2>
+          <p>Le Chat Noir, c’est une petite salle aux murs couverts de tableaux de chats et une terrasse ombragée au cœur de la rue Droite, à deux pas de la citadelle.</p>
+          <p>On y vient le soir pour un burger généreux, une bière fraîche et un dessert maison, entre amis, en famille ou en passant par Sisteron.</p>
+        </div>
+        <ul class="bon-a-savoir">
+          <li><strong>Sur place</strong><span>Salle et terrasse ombragée</span></li>
+          <li><strong>À emporter</strong><span>Commandez par téléphone au 04 92 62 21 28</span></li>
+          <li><strong>Accessibilité</strong><span>Accès fauteuil avec aide, toilettes adaptées</span></li>
+          <li><strong>Paiement</strong><span>Carte bancaire, chèque, espèces</span></li>
+          <li><strong>Langues</strong><span>Français, anglais</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="pierre carte" id="carte" aria-labelledby="titre-carte">
+      <div class="cadre">
+        <div class="intro">
+          <h2 id="titre-carte">La carte</h2>
+          <p>Tous nos burgers sont servis avec des frites maison. Prix nets, en euros, service compris.</p>
+        </div>
+        <div class="colonnes">
+          <div class="rubrique">
+            <h3>Les burgers</h3>
+            <ul class="plats">
+              <li><span class="plat">Le Chat Noir <span class="prix">16,50</span></span><span class="desc">Bœuf haché, cheddar affiné, oignons confits, sauce maison, pain brioché au charbon végétal.</span></li>
+              <li><span class="plat">Le Matou <span class="prix">17,50</span></span><span class="desc">Double bœuf, bacon grillé, cheddar, cornichons, sauce barbecue.</span></li>
+              <li><span class="plat">Le Chat Perché <span class="prix">16,50</span></span><span class="desc">Bœuf, chèvre, miel de lavande, roquette, noix.</span></li>
+              <li><span class="plat">Le Gouttière <span class="prix">15,50</span></span><span class="desc">Poulet pané croustillant, salade, tomate, sauce au yaourt et herbes.</span></li>
+              <li><span class="plat">Le Minou vert <span class="prix">15,00</span></span><span class="desc">Galette de légumes et pois chiches, tomme, crudités, sauce verte. Végétarien.</span></li>
+            </ul>
+          </div>
+          <div>
+            <div class="rubrique">
+              <h3>Pour les chatons</h3>
+              <ul class="plats">
+                <li><span class="plat">Menu enfant <span class="prix">10,00</span></span><span class="desc">Petit burger ou nuggets, frites, sirop à l’eau et une boule de glace. Jusqu’à 10 ans.</span></li>
+              </ul>
+            </div>
+            <div class="rubrique">
+              <h3>Les desserts</h3>
+              <ul class="plats">
+                <li><span class="plat">Mousse au chocolat <span class="prix">7,00</span></span><span class="desc">La recette de la maison, celle que nos clients recommandent.</span></li>
+                <li><span class="plat">Café gourmand <span class="prix">8,00</span></span><span class="desc">Un café et trois petites douceurs.</span></li>
+                <li><span class="plat">Coupe de glace <span class="prix">6,00</span></span><span class="desc">Deux boules au choix, chantilly sur demande.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="mentions-carte">La carte évolue selon les saisons. Liste des allergènes disponible sur demande auprès de l’équipe. L’origine de nos viandes bovines est indiquée en salle. L’abus d’alcool est dangereux pour la santé, à consommer avec modération.</p>
+      </div>
+    </section>
+
+    <section class="nuit reserver" id="reserver" aria-labelledby="titre-resa">
+      <div class="cadre">
+        <div class="tete">
+          <h2 id="titre-resa">Réserver une table</h2>
+          <p>Réservation immédiate jusqu’à 8 personnes. Pour un groupe plus grand ou pour ce soir dans moins d’une heure, appelez le <a href="tel:+33492622128">04 92 62 21 28</a>.</p>
+        </div>
+
+        <div id="zone-formulaire">
+          <form class="formulaire" id="form-resa" novalidate>
+            <div>
+              <fieldset class="etape">
+                <legend><span class="n">1</span> Quel soir ?</legend>
+                <div class="jours" id="jours" role="group" aria-label="Soirs disponibles"></div>
+                <div class="autre-date">
+                  <label for="date-libre">Plus tard :</label>
+                  <input type="date" id="date-libre">
+                </div>
+                <p class="erreur-champ" id="err-date"></p>
+              </fieldset>
+
+              <fieldset class="etape">
+                <legend><span class="n">2</span> Combien de personnes ?</legend>
+                <div class="compteur">
+                  <button type="button" id="moins" aria-label="Une personne de moins">−</button>
+                  <output id="couverts" aria-live="polite">2 personnes</output>
+                  <button type="button" id="plus" aria-label="Une personne de plus">+</button>
+                </div>
+                <p class="aide">Chaise haute disponible, précisez-le en commentaire.</p>
+              </fieldset>
+
+              <fieldset class="etape">
+                <legend><span class="n">3</span> À quelle heure ?</legend>
+                <div class="creneaux" id="creneaux" role="group" aria-label="Heures d'arrivée"></div>
+                <p class="message-creneaux" id="message-creneaux" aria-live="polite">Choisissez d’abord un soir.</p>
+                <p class="erreur-champ" id="err-heure"></p>
+              </fieldset>
+
+              <fieldset class="etape">
+                <legend><span class="n">4</span> Vos coordonnées</legend>
+                <div class="champs">
+                  <div class="champ large">
+                    <label for="nom">Nom</label>
+                    <input id="nom" name="nom" autocomplete="name" required maxlength="80">
+                    <p class="erreur-champ" id="err-nom"></p>
+                  </div>
+                  <div class="champ">
+                    <label for="telephone">Téléphone</label>
+                    <input id="telephone" name="telephone" type="tel" autocomplete="tel" required maxlength="20">
+                    <p class="erreur-champ" id="err-telephone"></p>
+                  </div>
+                  <div class="champ">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required maxlength="120">
+                    <p class="erreur-champ" id="err-email"></p>
+                  </div>
+                  <div class="champ large">
+                    <label for="commentaire">Commentaire <span class="facultatif">(facultatif)</span></label>
+                    <textarea id="commentaire" name="commentaire" maxlength="300" placeholder="Terrasse si possible, anniversaire, chaise haute…"></textarea>
+                  </div>
+                  <div class="piege" aria-hidden="true">
+                    <label for="site">Ne pas remplir</label>
+                    <input id="site" name="site" tabindex="-1" autocomplete="off">
+                  </div>
+                  <div class="champ large">
+                    <label class="case" for="conditions">
+                      <input type="checkbox" id="conditions" name="conditions">
+                      <span>J’accepte les <a href="conditions.html" target="_blank">conditions de réservation</a>. Mes coordonnées servent uniquement à gérer cette réservation, voir la <a href="confidentialite.html" target="_blank">politique de confidentialité</a>.</span>
+                    </label>
+                    <p class="erreur-champ" id="err-conditions"></p>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <aside class="recap" aria-labelledby="titre-recap">
+              <h3 id="titre-recap">Votre table</h3>
+              <dl>
+                <dt>Soir</dt><dd id="recap-date">À choisir</dd>
+                <dt>Heure</dt><dd id="recap-heure">À choisir</dd>
+                <dt>Personnes</dt><dd id="recap-couverts">2</dd>
+              </dl>
+              <p class="alerte" id="alerte" role="alert"></p>
+              <button class="bouton bouton-clair" type="submit" id="valider">Réserver la table</button>
+              <p class="petit">Annulation gratuite en ligne jusqu’à 2 heures avant votre arrivée. Aucun paiement demandé.</p>
+            </aside>
+          </form>
+        </div>
+
+        <details class="gerer">
+          <summary>Modifier ou annuler une réservation</summary>
+          <form id="form-gerer" novalidate>
+            <div class="champ">
+              <label for="ref">Référence</label>
+              <input id="ref" placeholder="CN-XXXXXX" autocapitalize="characters" maxlength="9" required>
+            </div>
+            <div class="champ">
+              <label for="email-gerer">E-mail utilisé</label>
+              <input id="email-gerer" type="email" autocomplete="email" required>
+            </div>
+            <button class="bouton bouton-clair" type="submit">Retrouver ma réservation</button>
+          </form>
+          <div class="resultat-gerer" id="resultat-gerer" aria-live="polite"></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="infos" id="infos" aria-labelledby="titre-infos">
+      <div class="cadre">
+        <h2 id="titre-infos">Nous trouver</h2>
+        <div>
+          <h3>Adresse</h3>
+          <address>217 rue Droite<br>04200 Sisteron</address>
+          <p>Dans la vieille ville, rue piétonne. Parkings à proximité.</p>
+          <p><a href="https://www.openstreetmap.org/search?query=217%20rue%20Droite%2C%2004200%20Sisteron" target="_blank" rel="noopener">Voir sur la carte</a></p>
+        </div>
+        <div>
+          <h3>Horaires</h3>
+          <table>
+            <caption class="passer">Horaires d'ouverture</caption>
+            <tbody>
+              <tr><td>Lundi</td><td>18:30 – 21:30</td></tr>
+              <tr><td>Mardi</td><td>18:30 – 21:30</td></tr>
+              <tr><td>Mercredi</td><td class="ferme">fermé</td></tr>
+              <tr><td>Jeudi</td><td class="ferme">fermé</td></tr>
+              <tr><td>Vendredi</td><td>18:30 – 21:30</td></tr>
+              <tr><td>Samedi</td><td>18:30 – 21:30</td></tr>
+              <tr><td>Dimanche</td><td>18:30 – 21:30</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p><a href="tel:+33492622128">04 92 62 21 28</a></p>
+          <p><a href="https://www.instagram.com/lechatnoirsisteron/" target="_blank" rel="noopener">Instagram @lechatnoirsisteron</a></p>
+          <p>Wi-Fi offert aux clients.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="cadre">
+      <p>Le Chat Noir, 217 rue Droite, Sisteron</p>
+      <nav aria-label="Informations légales">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="conditions.html">Conditions de réservation</a>
+        <a href="confidentialite.html">Confidentialité et cookies</a>
+        <a href="admin.html">Espace restaurant</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

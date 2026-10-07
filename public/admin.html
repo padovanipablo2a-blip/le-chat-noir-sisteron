@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Espace restaurant · Le Chat Noir</title>
+  <link rel="icon" href="chat.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="admin">
+    <div class="cadre">
+      <h1>Les réservations</h1>
+
+      <form id="form-connexion" class="barre">
+        <div class="champ">
+          <label for="mdp">Mot de passe</label>
+          <input id="mdp" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="bouton bouton-clair" type="submit">Ouvrir</button>
+        <p class="alerte" id="alerte-connexion" role="alert"></p>
+      </form>
+
+      <section id="tableau" hidden>
+        <div class="barre">
+          <div class="champ">
+            <label for="jour">Soir</label>
+            <input id="jour" type="date">
+          </div>
+          <button class="bouton bouton-clair" type="button" id="actualiser">Actualiser</button>
+          <button class="bouton bouton-contour" type="button" id="imprimer">Imprimer la liste</button>
+          <button class="bouton-texte" type="button" id="deconnexion">Se déconnecter</button>
+        </div>
+        <p class="aide">Prochains soirs réservés :</p>
+        <div class="prochains" id="prochains"></div>
+        <h2 id="titre-jour" class="titre-jour"></h2>
+        <p class="totaux" id="totaux"></p>
+        <div class="defile">
+          <table class="table-resa">
+            <thead><tr><th>Heure</th><th>Pers.</th><th>Nom</th><th>Téléphone</th><th>Commentaire</th><th>Statut</th><th></th></tr></thead>
+            <tbody id="lignes"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="admin.js" defer></script>
+</body>
+</html>

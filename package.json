@@ -1,0 +1,16 @@
+{
+  "name": "le-chat-noir-sisteron",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site et réservations en ligne du restaurant Le Chat Noir, 217 rue Droite, Sisteron",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}
