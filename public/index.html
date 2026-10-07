@@ -7,7 +7,7 @@
   <meta name="description" content="Le Chat Noir, restaurant de burgers au 217 rue Droite, dans la vieille ville de Sisteron. Ouvert le soir, terrasse ombragée. Réservez votre table en ligne.">
   <meta name="theme-color" content="#c45a33">
   <link rel="icon" href="chat.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/amatic-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/gloock.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <meta property="og:title" content="Le Chat Noir · Sisteron">
   <meta property="og:description" content="Burgers et soirées sous la terrasse, rue Droite. Réservez en ligne.">
@@ -232,7 +232,7 @@
           <h3>Adresse</h3>
           <address>217 rue Droite<br>04200 Sisteron</address>
           <p>Dans la vieille ville, rue piétonne. Parkings à proximité.</p>
-          <p><a href="https://www.openstreetmap.org/search?query=217%20rue%20Droite%2C%2004200%20Sisteron" target="_blank" rel="noopener">Voir sur la carte</a></p>
+          <p><a class="bouton bouton-itineraire" href="https://www.google.com/maps/dir/?api=1&amp;destination=Le+Chat+Noir+217+rue+Droite+04200+Sisteron" target="_blank" rel="noopener">Itinéraire</a></p>
         </div>
         <div>
           <h3>Horaires</h3>
@@ -255,6 +255,15 @@
           <p><a href="https://www.instagram.com/lechatnoirsisteron/" target="_blank" rel="noopener">Instagram @lechatnoirsisteron</a></p>
           <p>Wi-Fi offert aux clients.</p>
         </div>
+        <div class="plan" data-plan data-plan-src="https://maps.google.com/maps?q=Le%20Chat%20Noir%2C%20217%20rue%20Droite%2C%2004200%20Sisteron&amp;z=17&amp;hl=fr&amp;output=embed">
+          <div class="plan-accord">
+            <img src="chat.svg" alt="" width="40" height="50">
+            <p class="plan-lieu">217 rue Droite, dans la vieille ville de Sisteron</p>
+            <p class="plan-note">Le plan interactif est fourni par Google, qui dépose des cookies. Il s’affiche seulement si vous le demandez.</p>
+            <button class="bouton" type="button" data-plan-afficher>Afficher le plan</button>
+            <a class="plan-lien" href="https://www.google.com/maps/dir/?api=1&amp;destination=Le+Chat+Noir+217+rue+Droite+04200+Sisteron" target="_blank" rel="noopener">ou ouvrir l’itinéraire dans Google Maps</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -272,5 +281,6 @@
   </footer>
 
   <script src="app.js" defer></script>
+  <script src="plan.js" defer></script>
 </body>
 </html>

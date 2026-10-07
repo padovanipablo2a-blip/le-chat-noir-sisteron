@@ -62,8 +62,13 @@
 
       <h2>Cookies et traceurs</h2>
       <p>Ce site ne dépose aucun cookie : ni publicitaire, ni de mesure d’audience, ni de réseau social. C’est pourquoi aucun bandeau de consentement ne s’affiche.</p>
-      <p>Les polices de caractères sont hébergées sur notre propre serveur : votre navigateur ne contacte ni Google ni aucun autre service tiers en consultant le site. Les liens vers OpenStreetMap et Instagram ne s’ouvrent que si vous cliquez dessus ; ces sites appliquent alors leur propre politique.</p>
-      <p>Seul l’espace restaurant, réservé à l’équipe, garde le mot de passe en mémoire le temps de la session du navigateur (stockage strictement nécessaire, exempté de consentement selon l’article 82 de la loi Informatique et Libertés).</p>
+      <p>Les polices de caractères sont hébergées sur notre propre serveur : votre navigateur ne contacte ni Google ni aucun autre service tiers en consultant le site. Le lien Instagram et le lien d’itinéraire Google Maps ne s’ouvrent que si vous cliquez dessus ; ces sites appliquent alors leur propre politique.</p>
+
+      <h2>Le plan Google Maps</h2>
+      <p>Le plan interactif de la page d’accueil est fourni par Google, qui peut déposer des cookies et recevoir votre adresse IP. Il ne se charge que si vous cliquez sur « Afficher le plan ». Ce choix est gardé dans votre navigateur pour ne pas vous le redemander ; vous pouvez le retirer ici à tout moment.</p>
+      <p><button class="bouton" type="button" data-plan-retirer>Retirer mon accord pour le plan</button></p>
+      <p data-plan-etat></p>
+      <p>Le site garde seulement deux informations dans votre navigateur, sans cookie : votre choix d’afficher le plan Google, et, pour l’équipe du restaurant, le mot de passe de l’espace restaurant le temps de la session. Ce stockage est strictement nécessaire au service demandé et donc exempté de consentement (article 82 de la loi Informatique et Libertés).</p>
     </div>
   </main>
   <footer class="pied">
@@ -76,5 +81,6 @@
       </nav>
     </div>
   </footer>
+  <script src="plan.js" defer></script>
 </body>
 </html>
