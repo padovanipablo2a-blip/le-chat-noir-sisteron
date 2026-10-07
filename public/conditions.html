@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Conditions de réservation · Le Chat Noir, Sisteron</title>
   <link rel="icon" href="chat.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="anim.js?v=3"></script>
 </head>
 <body>
-  <header class="entete">
-    <div class="cadre">
-      <a class="marque" href="/"><img src="chat.svg" alt="" width="26" height="32"> Le Chat Noir</a>
-      <nav class="nav" aria-label="Navigation principale">
+  <header class="entete" data-entete>
+    <div class="cadre entete-barre">
+      <a class="marque" href="/" aria-label="Le Chat Noir, accueil">
+        <img src="chat-clair.svg" alt="" width="24" height="30">
+        <span>Le Chat Noir</span>
+      </a>
+      <nav class="nav" id="menu" aria-label="Navigation principale">
+        <a href="/#maison">La maison</a>
         <a href="/#carte">La carte</a>
-        <a href="/#reserver">Réserver</a>
-        <a href="/#infos">Infos</a>
+        <a href="/#infos">Accès et horaires</a>
+        <a class="nav-tel" href="tel:+33492622128">04 92 62 21 28</a>
       </nav>
+      <a class="bouton bouton-petit" href="/#reserver"><span>Réserver</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span><span></span></button>
     </div>
   </header>
   <main class="legal">
@@ -70,14 +77,29 @@
       <p>Le restaurant peut modifier ces conditions. La version applicable est celle en ligne au moment de votre réservation.</p>
     </div>
   </main>
-  <footer class="pied">
-    <div class="cadre">
-      <p>Le Chat Noir, 217 rue Droite, Sisteron</p>
+    <footer class="pied">
+    <div class="cadre pied-grille">
+      <div class="pied-marque">
+        <img src="chat-clair.svg" alt="" width="36" height="45">
+        <p class="pied-nom">Le Chat Noir</p>
+        <p>217 rue Droite, 04200 Sisteron<br><a href="tel:+33492622128">04 92 62 21 28</a></p>
+      </div>
+      <div>
+        <p class="pied-titre">Le soir</p>
+        <p>Lundi, mardi, vendredi, samedi, dimanche<br>18 h 30 à 21 h 30</p>
+        <p>Fermé mercredi et jeudi</p>
+      </div>
       <nav aria-label="Informations légales">
+        <p class="pied-titre">Informations</p>
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="conditions.html">Conditions de réservation</a>
         <a href="confidentialite.html">Confidentialité et cookies</a>
+        <a href="admin.html">Espace restaurant</a>
       </nav>
+    </div>
+    <div class="cadre pied-bas">
+      <p>© <span data-annee>2026</span> Le Chat Noir, Sisteron</p>
+      <a href="#" class="haut">Revenir en haut</a>
     </div>
   </footer>
 </body>

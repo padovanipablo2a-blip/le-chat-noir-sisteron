@@ -43,6 +43,7 @@ function dessinerJours() {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'jour';
+    b.style.setProperty('--i', i);
     b.dataset.date = iso;
     b.disabled = !ouvert;
     b.setAttribute('aria-pressed', String(iso === etat.date));
@@ -109,10 +110,11 @@ async function chargerCreneaux() {
   }
   const libres = donnees.creneaux.filter((c) => c.dispo).map((c) => c.heure);
   if (!libres.includes(etat.heure)) etat.heure = null;
-  for (const c of donnees.creneaux) {
+  for (const [i, c] of donnees.creneaux.entries()) {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'creneau';
+    b.style.setProperty('--i', i);
     b.textContent = c.heure.replace(':', ' h ');
     b.disabled = !c.dispo;
     b.setAttribute('aria-pressed', String(c.heure === etat.heure));
@@ -129,11 +131,33 @@ async function chargerCreneaux() {
   majRecap();
 }
 
-function majRecap() {
-  $('recap-date').textContent = etat.date ? dateLongue(etat.date) : 'À choisir';
-  $('recap-heure').textContent = etat.heure ? heureFr(etat.heure) : 'À choisir';
-  $('recap-couverts').textContent = etat.couverts;
+function ecrireRecap(id, valeur) {
+  const el = $(id);
+  if (el.textContent === String(valeur)) return;
+  el.textContent = valeur;
+  el.classList.remove('maj');
+  void el.offsetWidth; // relance l'animation
+  el.classList.add('maj');
 }
+
+function coordonneesRemplies() {
+  return $('nom').value.trim().length >= 2 && $('telephone').value.trim().length >= 8
+    && $('email').value.includes('@') && $('conditions').checked;
+}
+
+function majProgression() {
+  const faits = { 1: Boolean(etat.date), 2: Boolean(etat.date), 3: Boolean(etat.heure), 4: coordonneesRemplies() };
+  document.querySelectorAll('[data-progression] li').forEach((li) => li.classList.toggle('fait', faits[li.dataset.etape]));
+}
+
+function majRecap() {
+  ecrireRecap('recap-date', etat.date ? dateLongue(etat.date) : 'À choisir');
+  ecrireRecap('recap-heure', etat.heure ? heureFr(etat.heure) : 'À choisir');
+  ecrireRecap('recap-couverts', etat.couverts);
+  majProgression();
+}
+['nom', 'telephone', 'email', 'conditions'].forEach((id) => $(id).addEventListener('input', majProgression));
+$('conditions').addEventListener('change', majProgression);
 
 // ---------- Étape 4 : envoi ----------
 const CHAMPS = ['nom', 'telephone', 'email', 'conditions'];
@@ -175,11 +199,11 @@ $('form-resa').addEventListener('submit', async (ev) => {
 
   const bouton = $('valider');
   bouton.disabled = true;
-  bouton.textContent = 'Réservation en cours…';
+  bouton.innerHTML = '<span>Réservation en cours…</span>';
   const { ok, statut, donnees } = await api('/api/reservations', { method: 'POST', body: JSON.stringify(d) })
     .catch(() => ({ ok: false, statut: 0, donnees: {} }));
   bouton.disabled = false;
-  bouton.textContent = 'Réserver la table';
+  bouton.innerHTML = '<span>Réserver la table</span>';
 
   if (ok) return confirmer(donnees, d.email);
   if (donnees.champs) afficherErreurs(donnees.champs);
@@ -191,16 +215,20 @@ function confirmer(r, email) {
   const zone = $('zone-formulaire');
   zone.innerHTML = `
     <div class="confirmation" tabindex="-1" id="confirmation">
-      <h3>C’est réservé</h3>
-      <p>Une table pour <strong>${personnes(r.couverts)}</strong>, <strong>${dateLongue(r.date)}</strong> à <strong>${heureFr(r.heure)}</strong>, au nom de <strong></strong>.</p>
-      <p>Votre référence :</p>
-      <p class="reference">${r.reference}</p>
-      <p>Notez-la : avec votre e-mail (<span></span>), elle vous permet d’annuler en ligne jusqu’à 2 heures avant. Passé 15 minutes de retard sans nouvelles, la table peut être proposée à d’autres clients.</p>
-      <p>À bientôt rue Droite.</p>
+      <svg class="coche" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+      <div>
+        <h3>C’est réservé</h3>
+        <p>Une table pour <strong>${personnes(r.couverts)}</strong>, <strong>${dateLongue(r.date)}</strong> à <strong>${heureFr(r.heure)}</strong>, au nom de <strong data-nom></strong>.</p>
+        <p>Votre référence :</p>
+        <p class="reference">${r.reference}</p>
+        <p>Notez-la : avec votre e-mail (<span data-email></span>), elle vous permet d’annuler en ligne jusqu’à 2 heures avant. Passé 15 minutes de retard sans nouvelles, la table peut être proposée à d’autres clients.</p>
+        <p>À bientôt rue Droite.</p>
+      </div>
     </div>`;
-  const forts = zone.querySelectorAll('strong');
-  forts[forts.length - 1].textContent = r.nom; // texte saisi : jamais injecté en HTML
-  zone.querySelector('p:nth-of-type(4) span').textContent = email;
+  // textes saisis : jamais injectés en HTML
+  zone.querySelector('[data-nom]').textContent = r.nom;
+  zone.querySelector('[data-email]').textContent = email;
+  document.querySelectorAll('[data-progression] li').forEach((li) => li.classList.add('fait'));
   $('confirmation').focus();
   $('confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }

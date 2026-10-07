@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Espace restaurant · Le Chat Noir</title>
   <link rel="icon" href="chat.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <main class="admin">
@@ -29,14 +29,14 @@
             <input id="jour" type="date">
           </div>
           <button class="bouton bouton-clair" type="button" id="actualiser">Actualiser</button>
-          <button class="bouton bouton-contour" type="button" id="imprimer">Imprimer la liste</button>
+          <button class="bouton bouton-contour-sombre" type="button" id="imprimer">Imprimer la liste</button>
           <button class="bouton-texte" type="button" id="deconnexion">Se déconnecter</button>
         </div>
         <p class="aide">Prochains soirs réservés :</p>
         <div class="prochains" id="prochains"></div>
         <h2 id="titre-jour" class="titre-jour"></h2>
         <p class="totaux" id="totaux"></p>
-        <div class="defile">
+        <div class="defile-tableau">
           <table class="table-resa">
             <thead><tr><th>Heure</th><th>Pers.</th><th>Nom</th><th>Téléphone</th><th>Commentaire</th><th>Statut</th><th></th></tr></thead>
             <tbody id="lignes"></tbody>
@@ -45,6 +45,6 @@
       </section>
     </div>
   </main>
-  <script src="admin.js?v=2" defer></script>
+  <script src="admin.js?v=3" defer></script>
 </body>
 </html>
