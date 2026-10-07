@@ -212,7 +212,7 @@ function servirFichier(req, res, chemin) {
     }
     const ext = path.extname(absolu);
     const cache = ext === '.woff2' ? 'public, max-age=31536000, immutable'
-      : ext === '.html' ? 'no-cache' : 'public, max-age=3600';
+      : ['.html', '.css', '.js'].includes(ext) ? 'no-cache' : 'public, max-age=3600';
     res.writeHead(200, { ...ENTETES_SECURITE, 'Content-Type': TYPES[ext] || 'application/octet-stream', 'Cache-Control': cache });
     res.end(req.method === 'HEAD' ? undefined : contenu);
   });
